@@ -2,14 +2,14 @@ package resources
 
 import (
 	"context"
-	"github.com/cloudquery/cq-provider-sdk/plugin/schema"
+	"github.com/cloudquery/cq-provider-sdk/provider/schema"
 	"github.com/cloudquery/cq-provider-template/client"
 )
 
 func DemoResource() *schema.Table {
 	return &schema.Table{
-		Name:         "provider_demo_resources",
-		Resolver:     fetchDemoResources,
+		Name:     "provider_demo_resources",
+		Resolver: fetchDemoResources,
 		// Those are optional
 		// DeleteFilter: nil,
 		// Multiplex:    nil,
@@ -18,13 +18,13 @@ func DemoResource() *schema.Table {
 
 		Columns: []schema.Column{
 			{
-				Name:     "account_id",
-				Type:     schema.TypeString,
+				Name: "account_id",
+				Type: schema.TypeString,
 				//Resolver: provider.ResolveAWSAccount,
 			},
 			{
-				Name:     "region",
-				Type:     schema.TypeString,
+				Name: "region",
+				Type: schema.TypeString,
 				//Resolver: fetchS3BucketLocation,
 			},
 			{
@@ -32,8 +32,8 @@ func DemoResource() *schema.Table {
 				Type: schema.TypeTimestamp,
 			},
 			{
-				Name: "name",
-				Type: schema.TypeString,
+				Name:     "name",
+				Type:     schema.TypeString,
 				Resolver: schema.PathResolver("other_name_in_struct"),
 			},
 		},
@@ -63,7 +63,6 @@ func DemoResource() *schema.Table {
 		//},
 	}
 }
-
 
 // ====================================================================================================================
 //                                               Table Resolver Functions
