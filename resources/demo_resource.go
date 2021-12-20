@@ -2,13 +2,15 @@ package resources
 
 import (
 	"context"
+
 	"github.com/cloudquery/cq-provider-sdk/provider/schema"
+	// CHANGEME change this to your package name
 	"github.com/cloudquery/cq-provider-template/client"
 )
 
 func DemoResource() *schema.Table {
 	return &schema.Table{
-		Name:     "provider_demo_resources",
+		Name:     "demo_table",
 		Resolver: fetchDemoResources,
 		// Those are optional
 		// DeleteFilter: nil,
@@ -18,8 +20,9 @@ func DemoResource() *schema.Table {
 
 		Columns: []schema.Column{
 			{
-				Name: "account_id",
-				Type: schema.TypeString,
+				Name:        "account_id",
+				Type:        schema.TypeString,
+				Description: "Description of the column to appear in the generated documentation",
 				//Resolver: provider.ResolveAWSAccount,
 			},
 			{
